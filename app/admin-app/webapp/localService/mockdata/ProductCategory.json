@@ -1,0 +1,92 @@
+[
+  {
+    "createdAt": "2025-05-23T01:20:31.276Z",
+    "createdBy": "anonymous",
+    "modifiedAt": "2025-05-23T01:20:31.276Z",
+    "modifiedBy": "anonymous",
+    "ID": 1,
+    "Name": "Electronics",
+    "Description": "Devices and gadgets"
+  },
+  {
+    "createdAt": "2025-05-23T01:20:31.276Z",
+    "createdBy": "anonymous",
+    "modifiedAt": "2025-05-23T01:20:31.276Z",
+    "modifiedBy": "anonymous",
+    "ID": 2,
+    "Name": "Clothing",
+    "Description": "Apparel and accessories"
+  },
+  {
+    "createdAt": "2025-05-23T01:20:31.276Z",
+    "createdBy": "anonymous",
+    "modifiedAt": "2025-05-23T01:20:31.276Z",
+    "modifiedBy": "anonymous",
+    "ID": 3,
+    "Name": "Home & Kitchen",
+    "Description": "Furniture and appliances"
+  },
+  {
+    "createdAt": "2025-05-23T01:20:31.276Z",
+    "createdBy": "anonymous",
+    "modifiedAt": "2025-05-23T01:20:31.276Z",
+    "modifiedBy": "anonymous",
+    "ID": 4,
+    "Name": "Books",
+    "Description": "Printed and digital books"
+  },
+  {
+    "createdAt": "2025-05-23T01:20:31.276Z",
+    "createdBy": "anonymous",
+    "modifiedAt": "2025-05-23T01:20:31.276Z",
+    "modifiedBy": "anonymous",
+    "ID": 5,
+    "Name": "Beauty & Personal Care",
+    "Description": "Cosmetics and grooming products"
+  },
+  {
+    "createdAt": "2025-05-23T01:20:31.276Z",
+    "createdBy": "anonymous",
+    "modifiedAt": "2025-05-23T01:20:31.276Z",
+    "modifiedBy": "anonymous",
+    "ID": 6,
+    "Name": "Sports & Outdoors",
+    "Description": "Equipment and gear for sports"
+  },
+  {
+    "createdAt": "2025-05-23T01:20:31.276Z",
+    "createdBy": "anonymous",
+    "modifiedAt": "2025-05-23T01:20:31.276Z",
+    "modifiedBy": "anonymous",
+    "ID": 7,
+    "Name": "Toys & Games",
+    "Description": "Playthings and entertainment"
+  },
+  {
+    "createdAt": "2025-05-23T01:20:31.276Z",
+    "createdBy": "anonymous",
+    "modifiedAt": "2025-05-23T01:20:31.276Z",
+    "modifiedBy": "anonymous",
+    "ID": 8,
+    "Name": "Automotive",
+    "Description": "Vehicle parts and accessories"
+  },
+  {
+    "createdAt": "2025-05-23T01:20:31.276Z",
+    "createdBy": "anonymous",
+    "modifiedAt": "2025-05-23T01:20:31.276Z",
+    "modifiedBy": "anonymous",
+    "ID": 9,
+    "Name": "Health & Wellness",
+    "Description": "Medical supplies and wellness products"
+  },
+  {
+    "createdAt": "2025-05-23T01:20:31.276Z",
+    "createdBy": "anonymous",
+    "modifiedAt": "2025-05-23T01:20:31.276Z",
+    "modifiedBy": "anonymous",
+    "ID": 10,
+    "Name": "Pet Supplies",
+    "Description": "Products for pets"
+  }
+]
