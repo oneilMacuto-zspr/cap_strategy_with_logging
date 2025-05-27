@@ -7,6 +7,7 @@ entity Products : managed {
         Price       : Decimal(10, 2);
         Stock       : Integer;
         Category    : Association to ProductCategory;
+    virtual Criticality : Integer;
 }
 
 entity ProductCategory : managed {

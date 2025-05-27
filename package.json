@@ -70,9 +70,6 @@
   "imports": {
     "#cds-models/*": "./@cds-models/*/index.js"
   },
-  "workspaces": [
-    "app/*"
-  ],
   "sapux": [
     "app/admin-app"
   ]

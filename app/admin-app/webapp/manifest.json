@@ -113,15 +113,17 @@
               "controlConfiguration": {
                 "@com.sap.vocabularies.UI.v1.LineItem": {
                   "tableSettings": {
-                    "type": "ResponsiveTable"
+                    "type": "ResponsiveTable",
+                    "multiSelect": true,
+                    "selectionMode": "Multi"
                   },
                   "actions": {
                     "new-action": {
-                      "press": "adminapp.adminapp.ext.controller.new-action.newAction",
+                      "press": "adminapp.adminapp.ext.controller.ListReportExt.newAction",
                       "visible": true,
                       "enabled": true,
-                      "requiresSelection": false,
-                      "text": "actionButton"
+                      "requiresSelection": true,
+                      "text": "Send"
                     }
                   }
                 }

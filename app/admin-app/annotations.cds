@@ -68,6 +68,7 @@ annotate service.ProductProjection with @(
             $Type : 'UI.DataField',
             Label : 'Stock',
             Value : Stock,
+            Criticality: Criticality,
         },
         {
             $Type : 'UI.DataFieldForAction',
