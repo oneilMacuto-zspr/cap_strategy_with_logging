@@ -62,7 +62,7 @@ sap.ui.define([
     "use strict";
 
     return {
-        newAction: function (oExtensionAPI, aSelectedContexts) {
+        newAction: function (oExtensionAPI, aSelectedContexts, oEvent) {
             if (!Array.isArray(aSelectedContexts) || aSelectedContexts.length === 0) {
                 MessageToast.show("No row selected.");
                 return;
@@ -84,6 +84,9 @@ sap.ui.define([
             }).catch(function(oError) {
                 sap.m.MessageBox.error("Failed to add category.");
             });
+        },
+        sendAll: function(oExtensionAPI, aSelectedContexts, oEvent) {
+            MessageToast.show("Custom handler invoked.");
         }
     }
 });

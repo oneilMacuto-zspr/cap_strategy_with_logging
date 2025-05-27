@@ -124,6 +124,13 @@
                       "enabled": true,
                       "requiresSelection": true,
                       "text": "Send"
+                    },
+                    "sendAllAction": {
+                      "press": "adminapp.adminapp.ext.controller.ListReportExt.sendAll",
+                      "visible": true,
+                      "enabled": true,
+                      "requiresSelection": false,
+                      "text": "Send All"
                     }
                   }
                 }
@@ -139,6 +146,18 @@
                     "annotationPath": "com.sap.vocabularies.UI.v1.SelectionPresentationVariant#tableView1"
                   }
                 ]
+              },
+              "content": {
+                "header": {
+                  "actions": {
+                    "newHeaderAction": {
+                      "press": "adminapp.adminapp.ext.controller.NewHeaderActionHandler.newHeaderActionFn",
+                      "visible": true,
+                      "enabled": true,
+                      "text": "New Header Action"
+                    }
+                  }
+                }
               }
             }
           }
@@ -152,6 +171,18 @@
               "editableHeaderContent": false,
               "contextPath": "/ProductProjection"
             }
+          }
+        }
+      }
+    },
+    "extends": {
+      "extensions": {
+        "sap.ui.controllerExtensions": {
+          "sap.fe.templates.ListReport.ListReportController": {
+            "controllerName": "adminapp.adminapp.ext.controller.ListReportCtrlr"
+          },
+          "sap.fe.templates.ObjectPage.ObjectPageController": {
+            "controllerName": "adminapp.adminapp.ext.controller.ObjectPageCtrlr"
           }
         }
       }
