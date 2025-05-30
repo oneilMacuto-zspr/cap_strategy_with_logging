@@ -1,0 +1,8 @@
+<mvc:View
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  controllerName="adminapp.adminapp.ext.controller.ObjectPageCtrlr">
+  <VBox id="vbox5">
+    <Button text="This is a custom section!" id="txt5" />
+  </VBox>
+</mvc:View>

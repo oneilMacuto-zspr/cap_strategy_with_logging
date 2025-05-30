@@ -8,6 +8,7 @@
       "version": "0.0.1"
     },
     "title": "{{appTitle}}",
+    "subTitle": "{{appSubTitle}}",
     "description": "{{appDescription}}",
     "resources": "resources.json",
     "sourceTemplate": {
@@ -92,7 +93,12 @@
           "pattern": "ProductProjection({key}):?query:",
           "name": "ProductProjectionObjectPage",
           "target": "ProductProjectionObjectPage"
-        }
+        },        
+        {
+          "name": "CustomPageRoute",
+          "pattern": "custompage",
+          "target": "CustomPage"
+        }  
       ],
       "targets": {
         "ProductProjectionList": {
@@ -102,7 +108,7 @@
           "options": {
             "settings": {
               "contextPath": "/ProductProjection",
-              "variantManagement": "Page",
+              "variantManagement": "None",
               "navigation": {
                 "ProductProjection": {
                   "detail": {
@@ -154,7 +160,7 @@
                       "press": "adminapp.adminapp.ext.controller.NewHeaderActionHandler.newHeaderActionFn",
                       "visible": true,
                       "enabled": true,
-                      "text": "New Header Action"
+                      "text": "Show Planning Calendar"
                     }
                   }
                 }
@@ -169,9 +175,37 @@
           "options": {
             "settings": {
               "editableHeaderContent": false,
-              "contextPath": "/ProductProjection"
+              "contextPath": "/ProductProjection",
+              "content": {
+                "body": {
+                  "sections": {
+                    "ChartFragment": {
+                      "template": "adminapp.adminapp.ext.fragment.ChartFragment",
+                      "position": {
+                        "placement": "After",
+                        "anchor": "GeneratedFacet1"
+                      },
+                      "title": "chart sections"
+                    },
+                    "ChartFragmentTwo" : {
+                      "template": "adminapp.adminapp.ext.fragment.NewFragment",
+                      "position": {
+                        "placement": "After",
+                        "anchor": "ChartFragment"
+                      },
+                      "title": "new sections"
+                    }
+                  }
+                }
+              }
             }
           }
+        },
+        "CustomPage": {
+          "viewName": "adminapp.adminapp.ext.view.CustomPage",
+          "viewType": "XML",
+          "viewId": "CustomPage",
+          "transition": "slide"
         }
       }
     },
@@ -183,6 +217,25 @@
           },
           "sap.fe.templates.ObjectPage.ObjectPageController": {
             "controllerName": "adminapp.adminapp.ext.controller.ObjectPageCtrlr"
+          }
+        },
+        "sap.ui.viewExtensions": {
+          "sap.fe.templates.ListReport.view.ListReport": {
+            "BeforeFacet": {
+              "className": "sap.ui.core.mvc.View",
+              "viewName": "adminapp.adminapp.ext.view.CustomExtension",
+              "type": "XML"
+            }
+          },
+          "sap.suite.ui.generic.template.ObjectPage.view.Details": {
+            "AfterFacet|ProductProjection|GeneratedFacet1": {
+              "className": "sap.ui.core.mvc.View",
+              "viewName": "adminapp.adminapp.ext.view.CustomSection",
+              "type": "XML",
+              "sap.ui.generic.app": {
+                "title": "My Custom Section"
+              }
+            }
           }
         }
       }

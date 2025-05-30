@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:macros="sap.fe.macros">
+	<VBox core:require="{ handler: 'adminapp/adminapp/ext/fragment/ChartFragment'}" id="vbox1">
+		<Text text="{customModel>/startDate}" id="textNew2" />
+		<Button text="Chart Fragment" press="handler.onPress" id="button1" />
+	</VBox>
+</core:FragmentDefinition>

@@ -7,6 +7,7 @@ entity Products : managed {
         Price       : Decimal(10, 2);
         Stock       : Integer;
         Category    : Association to ProductCategory;
+        Status      : String;
     virtual Criticality : Integer;
 }
 
@@ -39,4 +40,9 @@ entity OrderItems : managed {
         Product  : Association to Products;
         Quantity : Integer;
         Price    : Decimal(10, 2);
+}
+
+entity Statuses : managed {
+    key ID      : Integer;
+        Status  : String;
 }

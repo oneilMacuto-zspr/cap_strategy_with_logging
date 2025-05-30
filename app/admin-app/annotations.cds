@@ -71,9 +71,15 @@ annotate service.ProductProjection with @(
             Criticality: Criticality,
         },
         {
+            $Type : 'UI.DataField',
+            Value : Status,
+            Label : 'Status',
+            Criticality : Criticality,
+        },
+        {
             $Type : 'UI.DataFieldForAction',
-            Action : 'AdminService.EntityContainer/addCategoryClass',
-            Label : 'Add Category',
+            Action : 'AdminService.changeStatus',
+            Label : 'Change Status',
             Inline : true,
         },
     ],
@@ -109,6 +115,23 @@ annotate service.ProductProjection with @(
         },
         Text : 'Table View 1',
     },
+    UI.FieldGroup #ProductCostPrices : {
+        Data : [
+            {Value : Price},
+            {Value : Stock}
+        ]
+    },
+    UI.FilterFacets : [
+        {
+            Target : '@UI.FieldGroup#ProductCostPrices',
+            Label : 'Filter by Costs-Prices'
+        }
+    ],
+    UI.SelectionFields : [
+        Price,
+        Stock,
+        Name
+    ]
 );
 
 annotate service.ProductProjection with {
