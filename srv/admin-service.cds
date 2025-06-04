@@ -44,6 +44,7 @@ service AdminService @(path: '/admin', impl: 'srv/admin-service.ts'){
                 }
             )
             newStatus : String,
+            Reason : String
         );
     };
     entity ProductCategoryProjection as projection on ProductCategory {

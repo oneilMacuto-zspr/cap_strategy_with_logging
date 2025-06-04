@@ -40,3 +40,5 @@ memory*
 .vscode/*
 .env2
 .env1
+
+app/admin-app/dist

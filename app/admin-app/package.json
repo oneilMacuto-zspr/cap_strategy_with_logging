@@ -19,6 +19,7 @@
     "@typescript-eslint/parser": "^7.1.1",
     "@ui5/cli": "^3.0.0",
     "typescript": "^5.1.6",
+    "ui5-middleware-simpleproxy": "^3.4.1",
     "ui5-task-zipper": "^3.4.x",
     "ui5-tooling-transpile": "^3.3.7"
   },

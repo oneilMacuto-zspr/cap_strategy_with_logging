@@ -118,6 +118,8 @@ module.exports = class AdminService extends cds.ApplicationService {
         async function changeStatusFn (req : Request) {
             try {
                 const uuidKey: string = performanceLog.logStartTime("AdminService", "changeStatusFn");
+                const reqData = req.data;
+                const reqParams = req.params;
                 performanceLog.logEndTime("AdminService", uuidKey, "changeStatusFn");
             } catch(error) {
                 logger.error(error);

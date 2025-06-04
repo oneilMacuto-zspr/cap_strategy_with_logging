@@ -1,5 +1,6 @@
 import ControllerExtension from 'sap/ui/core/mvc/ControllerExtension';
 import ExtensionAPI from 'sap/fe/templates/ListReport/ExtensionAPI';
+import JSONModel from 'sap/ui/model/json/JSONModel';
 
 /**
  * @namespace adminapp.adminapp.ext.controller
@@ -12,9 +13,49 @@ export default class ListReportCtrlr extends ControllerExtension<ExtensionAPI> {
 		 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
 		 * @memberOf adminapp.adminapp.ext.controller.ListReportCtrlr
 		 */
-		onInit(this: ListReportCtrlr) {
+		onInit(this: any) {
 			// you can access the Fiori elements extensionAPI via this.base.getExtensionAPI
-			const model = this.base.getExtensionAPI().getModel();
+			// const model = this.base.getExtensionAPI().getModel();
+			const dataModel = new JSONModel;
+			dataModel.setData({
+				"value1": null,
+				"value2": null,
+				"value3": null,
+				"value4": null,
+				"value5": null,
+				"value6": null,
+				"countries": [
+					{"key": "AT", "name": "Austria"},
+					{"key": "BE", "name": "Belgium"},
+					{"key": "BG", "name": "Bulgaria"},
+					{"key": "HR", "name": "Croatia"},
+					{"key": "CY", "name": "Cyprus"},
+					{"key": "CZ", "name": "Czechia"},
+					{"key": "DK", "name": "Denmark"},
+					{"key": "EE", "name": "Estonia"},
+					{"key": "FI", "name": "Finland"},
+					{"key": "FR", "name": "France"},
+					{"key": "DE", "name": "Germany"},
+					{"key": "GR", "name": "Greece"},
+					{"key": "HU", "name": "Hungary"},
+					{"key": "IE", "name": "Ireland"},
+					{"key": "IT", "name": "Italy"},
+					{"key": "LV", "name": "Latvia"},
+					{"key": "LT", "name": "Lithuania"},
+					{"key": "LU", "name": "Luxembourg"},
+					{"key": "MT", "name": "Malta"},
+					{"key": "NL", "name": "Netherlands"},
+					{"key": "PL", "name": "Poland"},
+					{"key": "PT", "name": "Portugal"},
+					{"key": "RO", "name": "Romania"},
+					{"key": "SK", "name": "Slovakia"},
+					{"key": "SI", "name": "Slovenia"},
+					{"key": "ES", "name": "Spain"},
+					{"key": "SE", "name": "Sweden"}
+				]
+			})
+			this.getView().setModel(dataModel, "data")
+			console.log("here")
 		}
 	}
 }

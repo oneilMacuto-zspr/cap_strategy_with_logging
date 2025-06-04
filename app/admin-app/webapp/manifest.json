@@ -93,12 +93,12 @@
           "pattern": "ProductProjection({key}):?query:",
           "name": "ProductProjectionObjectPage",
           "target": "ProductProjectionObjectPage"
-        },        
+        },
         {
           "name": "CustomPageRoute",
           "pattern": "custompage",
           "target": "CustomPage"
-        }  
+        }
       ],
       "targets": {
         "ProductProjectionList": {
@@ -187,7 +187,7 @@
                       },
                       "title": "chart sections"
                     },
-                    "ChartFragmentTwo" : {
+                    "ChartFragmentTwo": {
                       "template": "adminapp.adminapp.ext.fragment.NewFragment",
                       "position": {
                         "placement": "After",
