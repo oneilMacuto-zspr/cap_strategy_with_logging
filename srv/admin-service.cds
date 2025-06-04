@@ -11,5 +11,7 @@ service AdminService @(path: '/admin', impl: 'srv/admin-service.ts'){
     };
     action addProductCategory(payload: array of CategoryPayload) returns String;
     action addCategoryClass(payload: array of CategoryPayload) returns String;
+    action multipleLoggingInstances(payload: array of CategoryPayload) returns String;
+    action onlyOneInstance(payload: array of CategoryPayload) returns String;
 
 }
