@@ -2,9 +2,8 @@ const cds = require("@sap/cds");
 const logger = cds.log("OrderService");
 import { Request, Transaction } from "@sap/cds";
 const { logStartTime, logEndTime } = require("./lib/performance_logging");
-const { PerformanceLogger } = require("./lib/application_logging_one_instance"); // for class-based functions
-const { ApplicationLogger, APIExecutionLogger } = require("./lib/application_logging_multi_instance"); // for multiple logging instances
-const performanceLog = new PerformanceLogger("admin-service"); // for class-based functions
+const { ApplicationLogger } = require("./lib/application_logging_one_instance"); // for class-based functions
+const performanceLog = new ApplicationLogger("admin-service"); // for class-based functions
 const { callAPI_multi, callAPI_one } = require("./lib/apiops")
 
 type ExecutionType = {
@@ -20,25 +19,9 @@ module.exports = class AdminService extends cds.ApplicationService {
 
         this.on("addProductCategory", async (req: Request) => await addCategory(req));
         this.on("addCategoryClass", async (req: Request) => await addCategoryClass(req));
-        this.on("multipleLoggingInstances", async (req: Request) => await multipleLoggingInstances(req));
         this.on("onlyOneInstance", async (req: Request) => await onlyOneInstance(req));
 
         return super.init();
-
-        async function multipleLoggingInstances(req: Request) {
-            try {
-                const appLog: typeof ApplicationLogger = new ApplicationLogger("admin-service", "AdminService", "multipleLoggingInstances");
-
-                // LOGIC
-                // API CALL
-                await callAPI_multi();
-
-                appLog.logEndTime();
-
-            } catch (error) {
-
-            }
-        }
 
         async function onlyOneInstance(req: Request) {
             try {

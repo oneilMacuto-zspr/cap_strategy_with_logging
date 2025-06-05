@@ -8,7 +8,7 @@ type ExecutionType = {
   functionName: string;
 };
 
-export class PerformanceLogger {
+export class ApplicationLogger {
   constructor(private moduleName: string, private logLevel: string = constants.LOG_LEVEL) {
 
   }
