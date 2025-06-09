@@ -76,6 +76,11 @@
       "@i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "uri": "i18n/i18n.properties"
+      },
+      "optionData": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "",
+        "settings": {}
       }
     },
     "resources": {
@@ -138,6 +143,17 @@
                       "requiresSelection": false,
                       "text": "Send All"
                     }
+                  },
+                  "columns": {
+                    "CustomInput": {
+                      "header": "customInput",
+                      "width": "10%",
+                      "position": {
+                        "anchor": "DataField::Price",
+                        "placement": "After"
+                      },
+                      "template": "adminapp.adminapp.ext.fragment.CustomInput"
+                    }
                   }
                 }
               },
@@ -193,7 +209,7 @@
                         "placement": "After",
                         "anchor": "ChartFragment"
                       },
-                      "title": "new sections"
+                      "title": "new sectionssss"
                     }
                   }
                 }

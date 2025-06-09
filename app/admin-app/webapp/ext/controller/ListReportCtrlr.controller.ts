@@ -25,37 +25,65 @@ export default class ListReportCtrlr extends ControllerExtension<ExtensionAPI> {
 				"value5": null,
 				"value6": null,
 				"countries": [
-					{"key": "AT", "name": "Austria"},
-					{"key": "BE", "name": "Belgium"},
-					{"key": "BG", "name": "Bulgaria"},
-					{"key": "HR", "name": "Croatia"},
-					{"key": "CY", "name": "Cyprus"},
-					{"key": "CZ", "name": "Czechia"},
-					{"key": "DK", "name": "Denmark"},
-					{"key": "EE", "name": "Estonia"},
-					{"key": "FI", "name": "Finland"},
-					{"key": "FR", "name": "France"},
-					{"key": "DE", "name": "Germany"},
-					{"key": "GR", "name": "Greece"},
-					{"key": "HU", "name": "Hungary"},
-					{"key": "IE", "name": "Ireland"},
-					{"key": "IT", "name": "Italy"},
-					{"key": "LV", "name": "Latvia"},
-					{"key": "LT", "name": "Lithuania"},
-					{"key": "LU", "name": "Luxembourg"},
-					{"key": "MT", "name": "Malta"},
-					{"key": "NL", "name": "Netherlands"},
-					{"key": "PL", "name": "Poland"},
-					{"key": "PT", "name": "Portugal"},
-					{"key": "RO", "name": "Romania"},
-					{"key": "SK", "name": "Slovakia"},
-					{"key": "SI", "name": "Slovenia"},
-					{"key": "ES", "name": "Spain"},
-					{"key": "SE", "name": "Sweden"}
+					{ "key": "AT", "name": "Austria" },
+					{ "key": "BE", "name": "Belgium" },
+					{ "key": "BG", "name": "Bulgaria" },
+					{ "key": "HR", "name": "Croatia" },
+					{ "key": "CY", "name": "Cyprus" },
+					{ "key": "CZ", "name": "Czechia" },
+					{ "key": "DK", "name": "Denmark" },
+					{ "key": "EE", "name": "Estonia" },
+					{ "key": "FI", "name": "Finland" },
+					{ "key": "FR", "name": "France" },
+					{ "key": "DE", "name": "Germany" },
+					{ "key": "GR", "name": "Greece" },
+					{ "key": "HU", "name": "Hungary" },
+					{ "key": "IE", "name": "Ireland" },
+					{ "key": "IT", "name": "Italy" },
+					{ "key": "LV", "name": "Latvia" },
+					{ "key": "LT", "name": "Lithuania" },
+					{ "key": "LU", "name": "Luxembourg" },
+					{ "key": "MT", "name": "Malta" },
+					{ "key": "NL", "name": "Netherlands" },
+					{ "key": "PL", "name": "Poland" },
+					{ "key": "PT", "name": "Portugal" },
+					{ "key": "RO", "name": "Romania" },
+					{ "key": "SK", "name": "Slovakia" },
+					{ "key": "SI", "name": "Slovenia" },
+					{ "key": "ES", "name": "Spain" },
+					{ "key": "SE", "name": "Sweden" }
 				]
 			})
 			this.getView().setModel(dataModel, "data")
-			console.log("here")
+
+			const optionData = this.getView().getModel("optionData");
+			// if (optionData) {
+			// 	optionData.setData({
+			// 		options: [
+			// 			{ key: "A", text: "Option A" },
+			// 			{ key: "B", text: "Option B" },
+			// 			{ key: "C", text: "Option C" }
+			// 		]
+			// 	});
+			// }
+			// console.log("here")
+		},
+
+		onAfterRendering(this: any) {
+			console.log("hereafter")
+			const oActionContext = this.getView().getModel().bindContext("/getDropDownOptions(...)",);
+			oActionContext.setParameter("sampleParamName", "param");
+			oActionContext.execute().then(() => {
+				const oResult = oActionContext.getBoundContext().getObject();
+				console.log("Function result:", oResult);
+				const optionData = this.getView().getModel("optionData").getData();
+				const newData = optionData.options.concat(oResult.value.options);
+				this.getView().getModel("optionData").setData({ options: newData });
+			})
+		},
+
+		onComboBoxChange(this: any) {
+			console.log("onComboBoxChange")
 		}
 	}
 }

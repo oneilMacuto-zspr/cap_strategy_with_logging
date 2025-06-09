@@ -9,6 +9,7 @@ entity Products : managed {
         Category    : Association to ProductCategory;
         Status      : String;
     virtual Criticality : Integer;
+    virtual inputField : String;
 }
 
 entity ProductCategory : managed {

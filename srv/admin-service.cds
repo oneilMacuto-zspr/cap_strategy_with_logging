@@ -54,4 +54,5 @@ service AdminService @(path: '/admin', impl: 'srv/admin-service.ts'){
     action addCategoryClass(payload: array of CategoryPayload) returns String;
     action sendDataForApproval(payload: array of itemPayload) returns String;
     function getPlanCalendarData() returns String;
+    function getDropDownOptions() returns String;
 }
