@@ -1,6 +1,10 @@
 {
   "_version": "1.65.0",
   "sap.app": {
+    "crossNavigation": {
+      "semanticObject": "ProductProjection",
+      "action": "create"
+    },
     "id": "adminapp.adminapp",
     "type": "application",
     "i18n": "i18n/i18n.properties",
@@ -189,6 +193,8 @@
           "id": "ProductProjectionObjectPage",
           "name": "sap.fe.templates.ObjectPage",
           "options": {
+            "editable": true,
+            "createMode": true,
             "settings": {
               "editableHeaderContent": false,
               "contextPath": "/ProductProjection",

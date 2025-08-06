@@ -3,6 +3,8 @@
   xmlns:core="sap.ui.core"
   xmlns="sap.m"
   xmlns:unified="sap.ui.unified"
+	xmlns:smartTable="sap.ui.comp.smarttable"
+	xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
   controllerName="adminapp.adminapp.ext.controller.CustomPage"
   displayBlock="true">
 
@@ -16,6 +18,31 @@
       <VBox class="sapUiSmallMargin" id="vboxCustomPage1">
         <Text text="Welcome to the Custom Page!" id="txtCustomPage1" />
         <Button text="Do Something" press="onDoSomething" id="btnCustomPage1" />
+		<Input id="CustomInput" />
+		<ComboBox xmlns="sap.m" id="CustomComboBox" items="{customModel>/people}">
+			<items>
+				<core:Item id="_IDGenItem" xmlns:core="sap.ui.core" key="{customModel>name}" text="{customModel>name}"/>
+			</items>
+		</ComboBox>
+		<Table id="myTable" items="{/ProductProjection}">
+			<columns>
+				<Column id="_IDGenColumn1">
+					<Text id="_IDGenText" text="ID"/>
+				</Column>
+				<Column id="_IDGenColumn2">
+					<Text id="_IDGenText1" text="Name"/>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem id="_IDGenColumnListItem">
+					<cells>
+						<Text id="_IDGenText2" text="{ID}"/>
+						<Text id="_IDGenText3" text="{Name}"/>
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+
       </VBox>
 	<VBox id="vbox3">
 		<PlanningCalendar

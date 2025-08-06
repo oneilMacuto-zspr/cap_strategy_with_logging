@@ -14,7 +14,28 @@ service AdminService @(path: '/admin', impl: 'srv/admin-service.ts'){
         Stock: Integer;
     }
     entity StatusesProjection as projection on Statuses;
-    entity ProductProjection as select from Products actions {
+
+    // @Capabilities: {
+    //     InsertRestrictions.Insertable: true,
+    //     UpdateRestrictions.Updatable: true,
+    //     DeleteRestrictions.Deletable: true
+    // }
+    entity ProductProjection @(
+        Capabilities : { 
+            InsertRestrictions : {
+                $Type : 'Capabilities.InsertRestrictionsType',
+                Insertable,
+            },
+            UpdateRestrictions : {
+                $Type : 'Capabilities.UpdateRestrictionsType',
+                Updatable,
+            },
+            DeleteRestrictions : {
+                $Type : 'Capabilities.DeleteRestrictionsType',
+                Deletable,
+            }
+        }
+    ) as select from Products actions {
         @(
             //Update the UI after action
             Common.SideEffects              : {
@@ -47,6 +68,7 @@ service AdminService @(path: '/admin', impl: 'srv/admin-service.ts'){
             Reason : String
         );
     };
+    annotate ProductProjection with @odata.draft.enabled;
     entity ProductCategoryProjection as projection on ProductCategory {
         ID, Name, Description
     };

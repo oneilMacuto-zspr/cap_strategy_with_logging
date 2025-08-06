@@ -45,6 +45,12 @@ annotate service.ProductProjection with @(
     ],
     UI.LineItem : [
         {
+            $Type : 'UI.DataFieldForAction',
+            Action : 'AdminService.changeStatus',
+            Label : 'Change Status',
+            // Inline : true,
+        },
+        {
             $Type : 'UI.DataField',
             Label : 'ID',
             Value : ID,
@@ -75,12 +81,6 @@ annotate service.ProductProjection with @(
             Value : Status,
             Label : 'Status',
             Criticality : Criticality,
-        },
-        {
-            $Type : 'UI.DataFieldForAction',
-            Action : 'AdminService.changeStatus',
-            Label : 'Change Status',
-            Inline : true,
         },
     ],
     UI.SelectionPresentationVariant #tableView : {

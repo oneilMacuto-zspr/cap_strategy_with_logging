@@ -34,13 +34,21 @@ server:
           overridesToOverride: true
         excludePatterns:
           - /Component-preload.js
-    - name: sap-fe-mockserver
-      mountPath: /
+    # - name: sap-fe-mockserver
+    #   mountPath: /
+    #   afterMiddleware: compression
+    #   configuration:
+    #     service:
+    #       urlPath: "/admin/"  # Match your CAP service path
+    #       metadataXmlPath: "webapp/localService/metadata.xml"
+    #       mockdataRootPath: "webapp/localService/mockdata"
+    #       generateMockData: true
+    #     watch: true
+    # - name: ui5-middleware-cap
+    #   afterMiddleware: compression
+    #   mountPath: "/admin"
+    - name: ui5-middleware-simpleproxy
+      mountPath: /admin
       afterMiddleware: compression
       configuration:
-        service:
-          urlPath: "/admin/"  # Match your CAP service path
-          metadataXmlPath: "webapp/localService/metadata.xml"
-          mockdataRootPath: "webapp/localService/mockdata"
-          generateMockData: true
-        watch: true
+        baseUri: "http://localhost:4004/admin"

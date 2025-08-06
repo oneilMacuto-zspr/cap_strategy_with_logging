@@ -4,6 +4,7 @@ import MessageToast from "sap/m/MessageToast";
 import JSONModel from "sap/ui/model/json/JSONModel";
 import MessageBox from "sap/m/MessageBox";
 import formatter from "../helper/formatter";
+import View from "sap/ui/vk/View";
 
 export default class CustomPage extends Controller {
 	public static formatter = formatter;
@@ -76,22 +77,17 @@ export default class CustomPage extends Controller {
   /**
    * Handles the press event of the "Do Something" button.
    */
-  public onDoSomething(this : any): void {
+  public async onDoSomething(this : any): Promise<void> {
     MessageToast.show("Button pressed on Custom Page!");
-	const oModel = this.getOwnerComponent().getModel();
-	  
-		const oContextBinding = oModel.bindContext("/getPlanCalendarData(...)");
-		oContextBinding.setParameter("sampleParamName", "param");
-	  
-		oContextBinding.execute().then(() => {
-		  const oResult = oContextBinding.getBoundContext().getObject();
-		  console.log("Function result:", oResult);
-		  const oCustomModel = this.getView().getModel("customModel")
-		  oCustomModel.setData(oResult.value);
-		  oCustomModel.refresh(true); 
-		  window.location.reload();
-		}).catch((oError: any) => {
-		  console.error("Function call failed:", oError);
+	// MessageBox.confirm("Approve purchase order 12345?");
+	if (!this._oDialog) {
+		this._oDialog = await this.loadFragment({
+			name: "adminapp.adminapp.ext.fragment.Dialog"
 		});
+	}
+	this._oDialog.open();
+  }
+  public onCloseDialog(this : any): void {
+    this._oDialog.close();
   }
 }

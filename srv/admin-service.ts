@@ -14,10 +14,18 @@ module.exports = class AdminService extends cds.ApplicationService {
         this.on("addProductCategory", async (req: Request) => await addCategory(req));
         this.on("addCategoryClass", async (req: Request) => await addCategoryClass(req));
         this.on("sendDataForApproval", async (req: Request) => await sendDataForApproval(req))
-        this.after("READ", "ProductProjection", async (req: Array<ProductProjection>) => await addCriticalityValues(req))
-        this.on("changeStatus", async (req: Request) => await changeStatusFn(req));
-        this.on("getPlanCalendarData", async (req: Request) => await getPlanCalendarData(req));
-        this.on("getDropDownOptions", async (req: Request) => await getDropDownOptions(req));
+        this.after("READ", "ProductProjection", async (req : Array<ProductProjection>) => await addCriticalityValues(req))
+        this.on("changeStatus", async (req : Request) => await changeStatusFn(req));
+        this.on("getPlanCalendarData", async (req : Request) => await getPlanCalendarData(req));
+        const cds = require('@sap/cds');
+
+        // this.before('CREATE', 'ProductProjection', async (req : Request) => {
+        //     console.log('asdfs')
+        //     const db = await cds.connect.to('db');
+        //     const result = await db.run(`SELECT nextval('order_id_seq') AS id`);
+        //     req.data.ID = result[0].ID;
+        // });
+
 
         return super.init();
 
@@ -119,6 +127,7 @@ module.exports = class AdminService extends cds.ApplicationService {
 
         async function changeStatusFn(req: Request) {
             try {
+                await UPDATE (req.subject) .with ({ Status: req.data.newStatus });
                 const uuidKey: string = performanceLog.logStartTime("AdminService", "changeStatusFn");
                 const reqData = req.data;
                 const reqParams = req.params;

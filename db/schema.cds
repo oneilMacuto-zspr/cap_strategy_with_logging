@@ -1,7 +1,7 @@
 using { managed } from '@sap/cds/common';
 
 entity Products : managed {
-    key ID          : Integer;
+    Key ID          : Integer;
         Name        : String(100);
         Description : String(500);
         Price       : Decimal(10, 2);

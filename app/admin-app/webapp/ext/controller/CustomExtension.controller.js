@@ -10,6 +10,12 @@ sap.ui.define([
   
       onCustomButtonPress: function() {
         sap.m.MessageToast.show("Custom button pressed!");
+
+        if (!this._oDialog) {
+            this._oDialog = sap.ui.xmlfragment("adminapp.adminapp.ext.Dialog", this);
+            this.getView().addDependent(this._oDialog);
+        }
+        this._oDialog.open();
       }
     });
   });
